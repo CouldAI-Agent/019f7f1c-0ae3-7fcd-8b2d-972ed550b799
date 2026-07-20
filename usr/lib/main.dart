@@ -43,50 +43,98 @@ class ResumeScreen extends StatelessWidget {
               children: [
                 _buildHeader(context),
                 const SizedBox(height: 32),
-                _buildSectionTitle(context, 'Summary'),
+                
+                _buildSectionTitle(context, 'Career Objective'),
                 const Text(
-                  'Experienced Software Engineer with a passion for building scalable, '
-                  'user-friendly applications. Proven ability to lead teams and deliver '
-                  'high-quality software solutions across various platforms including '
-                  'mobile and web.',
+                  'Motivated and detail-oriented graduate seeking an entry-level position in a reputed '
+                  'organization where I can utilize my communication, problem-solving, and teamwork '
+                  'skills while contributing to the company\'s growth and developing my professional abilities.',
                   style: TextStyle(fontSize: 16, height: 1.5),
                 ),
                 const SizedBox(height: 32),
-                _buildSectionTitle(context, 'Experience'),
+
+                _buildSectionTitle(context, 'Education'),
                 _buildExperienceItem(
-                  'Senior Software Engineer',
-                  'TechCorp Solutions',
-                  'Jan 2021 - Present',
-                  'Led the development of a cross-platform mobile application using Flutter, '
-                  'resulting in a 40% increase in user engagement. Architected the backend '
-                  'services using Node.js and PostgreSQL.',
+                  'B. Sc',
+                  'Govt Degree College, Rajahmundry',
+                  '2021-2024',
+                  'Percentage: 82%',
                 ),
                 const SizedBox(height: 24),
                 _buildExperienceItem(
-                  'Software Engineer',
-                  'Innovate LLC',
-                  'Jun 2018 - Dec 2020',
-                  'Developed and maintained RESTful APIs for a high-traffic e-commerce '
-                  'platform. Implemented CI/CD pipelines to automate testing and deployment.',
+                  'Intermediate',
+                  'Pragati Junior College, Rajahmundry',
+                  '2019-2021',
+                  'Percentage: 75.4%',
                 ),
-                const SizedBox(height: 32),
-                _buildSectionTitle(context, 'Education'),
+                const SizedBox(height: 24),
                 _buildExperienceItem(
-                  'B.S. in Computer Science',
-                  'University of Technology',
-                  '2014 - 2018',
-                  'Graduated with Honors. Specialized in Software Engineering and Human-Computer Interaction.',
+                  'SSC',
+                  'BVM High School',
+                  '2019',
+                  'Percentage: 87%',
                 ),
                 const SizedBox(height: 32),
+
                 _buildSectionTitle(context, 'Skills'),
+                const Text(
+                  'Technical Skills',
+                  style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
+                ),
+                const SizedBox(height: 8),
                 Wrap(
                   spacing: 8.0,
                   runSpacing: 8.0,
                   children: [
-                    'Flutter', 'Dart', 'Node.js', 'Python', 'React',
-                    'PostgreSQL', 'Docker', 'AWS', 'Git', 'Agile'
+                    'MS Word', 'MS Excel', 'MS PowerPoint'
                   ].map((skill) => Chip(label: Text(skill))).toList(),
                 ),
+                const SizedBox(height: 16),
+                const Text(
+                  'Soft Skills',
+                  style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
+                ),
+                const SizedBox(height: 8),
+                Wrap(
+                  spacing: 8.0,
+                  runSpacing: 8.0,
+                  children: [
+                    'Communication Skills', 'Problem Solving', 'Adaptability', 'Leadership Skills'
+                  ].map((skill) => Chip(label: Text(skill))).toList(),
+                ),
+                const SizedBox(height: 32),
+
+                _buildSectionTitle(context, 'Certificate Courses'),
+                _buildListItems([
+                  'Digital Marketing certificate',
+                  'Ms Office'
+                ]),
+                const SizedBox(height: 32),
+
+                _buildSectionTitle(context, 'Internships'),
+                _buildExperienceItem(
+                  'Digital marketing Intern (Short Term)',
+                  '',
+                  '',
+                  '• Managed social media content and posting.\n'
+                  '• Assisted in SEO and content marketing activities.\n'
+                  '• Monitored campaign performance and audience engagement.\n'
+                  '• Prepared basic marketing reports.',
+                ),
+                const SizedBox(height: 32),
+
+                _buildSectionTitle(context, 'Languages'),
+                _buildListItems([
+                  'English',
+                  'Telugu'
+                ]),
+                const SizedBox(height: 32),
+                
+                _buildSectionTitle(context, 'Interests'),
+                _buildListItems([
+                  'Cooking',
+                  'Listening to music'
+                ]),
                 const SizedBox(height: 48),
               ],
             ),
@@ -96,12 +144,28 @@ class ResumeScreen extends StatelessWidget {
     );
   }
 
+  Widget _buildListItems(List<String> items) {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: items.map((item) => Padding(
+        padding: const EdgeInsets.only(bottom: 6.0),
+        child: Row(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            const Text('• ', style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold)),
+            Expanded(child: Text(item, style: const TextStyle(fontSize: 16))),
+          ],
+        ),
+      )).toList(),
+    );
+  }
+
   Widget _buildHeader(BuildContext context) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Text(
-          'Jane Doe',
+          'Shaik Munnisha',
           style: Theme.of(context).textTheme.displaySmall?.copyWith(
                 fontWeight: FontWeight.bold,
                 color: Theme.of(context).colorScheme.primary,
@@ -109,7 +173,7 @@ class ResumeScreen extends StatelessWidget {
         ),
         const SizedBox(height: 8),
         Text(
-          'Software Engineer',
+          'Graduate',
           style: Theme.of(context).textTheme.titleLarge?.copyWith(
                 color: Colors.grey[700],
               ),
@@ -119,9 +183,9 @@ class ResumeScreen extends StatelessWidget {
           spacing: 16.0,
           runSpacing: 8.0,
           children: [
-            _buildContactInfo(Icons.email, 'jane.doe@example.com'),
-            _buildContactInfo(Icons.phone, '+1 (555) 123-4567'),
-            _buildContactInfo(Icons.location_on, 'San Francisco, CA'),
+            _buildContactInfo(Icons.email, 'munnishashaik52@gmail.com'),
+            _buildContactInfo(Icons.phone, '+918341195399'),
+            _buildContactInfo(Icons.location_on, 'Rajahmundry'),
           ],
         ),
       ],
@@ -183,29 +247,34 @@ class ResumeScreen extends StatelessWidget {
               ),
             ),
             const SizedBox(width: 16),
-            Text(
-              date,
-              style: TextStyle(
-                color: Colors.grey[600],
-                fontWeight: FontWeight.w500,
+            if (date.isNotEmpty)
+              Text(
+                date,
+                style: TextStyle(
+                  color: Colors.grey[600],
+                  fontWeight: FontWeight.w500,
+                ),
               ),
-            ),
           ],
         ),
-        const SizedBox(height: 4),
-        Text(
-          company,
-          style: TextStyle(
-            fontSize: 16,
-            color: Colors.grey[800],
-            fontStyle: FontStyle.italic,
+        if (company.isNotEmpty) ...[
+          const SizedBox(height: 4),
+          Text(
+            company,
+            style: TextStyle(
+              fontSize: 16,
+              color: Colors.grey[800],
+              fontStyle: FontStyle.italic,
+            ),
           ),
-        ),
-        const SizedBox(height: 8),
-        Text(
-          description,
-          style: const TextStyle(fontSize: 15, height: 1.5),
-        ),
+        ],
+        if (description.isNotEmpty) ...[
+          const SizedBox(height: 8),
+          Text(
+            description,
+            style: const TextStyle(fontSize: 15, height: 1.5),
+          ),
+        ],
       ],
     );
   }
